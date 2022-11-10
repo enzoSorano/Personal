@@ -9,8 +9,7 @@ public class PaintingPanel extends JPanel {
 	
 	public PaintingPanel() {
 		//create a panel and set the background color to white
-		JPanel shape = new JPanel();
-		shape.setBackground(Color.WHITE);
+		this.setBackground(Color.WHITE);
 	}
 	public void addPrimitive(PaintingPrimitive obj) {
 		//add the circle or line to the ArrayList
@@ -20,11 +19,12 @@ public class PaintingPanel extends JPanel {
 public void paintComponent(Graphics g) {
         //erases the screen
 		super.paintComponent(g);
-        
+        Graphics g2D = (Graphics)g;
 		for(PaintingPrimitive obj : primitives) {  
 			//g is the sheet of paper
-			obj.draw(g);
+			obj.draw(g2D);
         }
+		System.out.println("called");
    
 }
 }

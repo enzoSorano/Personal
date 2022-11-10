@@ -1,11 +1,7 @@
 package edu.du.cs.esorano.sockets;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.*;
-
 public class Painter extends JFrame {
 // set up our jframe
 	public Painter() {
@@ -67,10 +63,10 @@ public class Painter extends JFrame {
 		setContentPane(shapeHolder);
 		
 		//------- painting pannel
-//create a holder pane for the drawing
-		JPanel drawingHolder = new JPanel();
-		drawingHolder.setLayout(new BorderLayout());
-
+//create a painting panel
+		PaintingPanel pp = new PaintingPanel();
+//add paintingPanel to the center
+		pMain.add(pp, BorderLayout.CENTER);
 		
 		
 		
@@ -81,11 +77,11 @@ public class Painter extends JFrame {
 	}
 		
 	public static void main(String args[]) {
-		// chat room setup
-		//Painter p = new Painter();
-		PaintingPanel pp = new PaintingPanel();
-		Circle c = new Circle(10,10,10, Color.RED);
-		pp.addPrimitive(c);
+		//set up a painting pannel
+		Painter p = new Painter();
+	
+		
+		
 		
 	}
 	
