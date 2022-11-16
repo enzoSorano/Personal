@@ -2,6 +2,7 @@ package edu.du.cs.esorano.sockets;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 public class Circle extends PaintingPrimitive {
 	//store the radius
@@ -13,7 +14,7 @@ public class Circle extends PaintingPrimitive {
 	//stores the color
 	private Color color;
 	//constructor that intializes the circle
-	public Circle(int x,int y,int radius, Color color) {
+	public Circle(int x,int y, int radius, Color color) {
 		//set the color in the abstract class
 		super(color);
 		//create the center point
@@ -27,7 +28,7 @@ public class Circle extends PaintingPrimitive {
 	public void drawGeometry(Graphics g) {
         int radius = (int) Math.abs(center.distance(radiusPoint));
         g.drawOval(center.x - radius, center.y - radius, radius*2, radius*2);  
-        System.out.println("overide succesfull: circle drawn");
+        
 }
 	
 	/*

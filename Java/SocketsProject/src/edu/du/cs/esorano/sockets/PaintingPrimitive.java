@@ -1,9 +1,11 @@
 package edu.du.cs.esorano.sockets;
 //parent class
 import java.awt.*;
-import javax.swing.*;
+import java.io.Serializable;
 
-public abstract class PaintingPrimitive  {
+import javax.swing.*;
+//must implements Serializable so we can conver to bits when sending the object
+public abstract class PaintingPrimitive implements Serializable {
 	//store the color that we are going to make the circle or the line
 	private Color color;
 	//constructor used when we call super
@@ -21,7 +23,7 @@ public abstract class PaintingPrimitive  {
 		//set the color of the graphic
 		g.setColor(this.color);
 		drawGeometry(g);
-		System.out.println("the image has been drawn");
+		
 		
 	}
 	

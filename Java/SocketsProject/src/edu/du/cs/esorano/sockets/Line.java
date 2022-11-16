@@ -21,7 +21,7 @@ public class Line extends PaintingPrimitive {
 		public void drawGeometry(Graphics g) {
 			//draw a line
 			g.drawLine(this.start.x, this.start.y, this.end.x, this.end.y);
-			System.out.println("overide succesfull: line drawn");
+			
 		}
 		
 		

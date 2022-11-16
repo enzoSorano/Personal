@@ -15,6 +15,10 @@ public class PaintingPanel extends JPanel {
 		//add the circle or line to the ArrayList
 		this.primitives.add(obj);
 }
+	public void addAll(PaintingPanel p) {
+        System.out.println(p.primitives.toString());
+        this.primitives.addAll(p.primitives);
+    }
 
 public void paintComponent(Graphics g) {
         //erases the screen
@@ -27,4 +31,5 @@ public void paintComponent(Graphics g) {
 		System.out.println("called");
    
 }
+
 }
