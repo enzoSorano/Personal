@@ -72,7 +72,8 @@ public class Painter extends JFrame {
 		drawingHolder.setLayout(new BorderLayout());
 
 		
-		
+		//add Paintingpanel to the center
+		//repaint in mouse released
 		
 		// sets the main pain
 		setContentPane(pMain);

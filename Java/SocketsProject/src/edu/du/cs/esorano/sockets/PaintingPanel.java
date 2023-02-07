@@ -27,4 +27,5 @@ public void paintComponent(Graphics g) {
         }
    
 }
+//set brush color
 }
