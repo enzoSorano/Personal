@@ -2,33 +2,34 @@ package edu.du.cs.esorano.sockets;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 public class Circle extends PaintingPrimitive {
-	//stores x coordinate of the center of the circle
-	private int x;
-	//stores the y componenet of the center of the circle
-	private int y;
-	//stores radius of the circle
+	//store the radius
 	private int radius;
+	//stores the center point
+	 protected Point center;
+	//stores the radiusPoint
+	Point radiusPoint;
 	//stores the color
 	private Color color;
 	//constructor that intializes the circle
-	public Circle(int x, int y, int radius, Color color) {
+	public Circle(int x,int y, int radius, Color color) {
 		//set the color in the abstract class
 		super(color);
-		this.x = x;
-		this.y =y;
-		this.radius = radius;
-		//super up the collor
-		//super(color)
+		//create the center point
+		this.center = new Point(x,y);
+		//create the radius point
+		//NOTE: this may need to be a different value
+		this.radiusPoint = new Point(x+radius,y);	
+	
 	}
 	@Override
-	public void draw(Graphics g) {
-		//set the color of the circle
-		g.setColor(this.color);
-		//draw a circle
-		g.drawOval(x-(radius/2), y-(radius/2), radius, radius);
-	}
+	public void drawGeometry(Graphics g) {
+        int radius = (int) Math.abs(center.distance(radiusPoint));
+        g.drawOval(center.x - radius, center.y - radius, radius*2, radius*2);  
+        
+}
 	
 	/*
 	//called every time we resize or minimize
