@@ -5,6 +5,33 @@
  * This is the skeleton code form COMP2691 Assignment #2.
  */
 public class BinaryCalculator {
+	//** helper function to print
+	public static void print(BitField a) {
+		System.out.println(a.toString());
+	}
+	//** return true if a is greater than or equal to zero
+	public static boolean isZero(BitField a) {
+		boolean value = true;
+		for(int i = 0; i < a.size(); i++) {
+			if(a.get(i) == true) {
+				value = false;
+			}
+		}
+		return value;
+	}
+	
+	//** helper function to compare two bit fields
+	// if a > b return true
+	// if a < b  return false
+	public static boolean AGreaterThanB(BitField a, BitField b) {
+		Boolean result = false;
+		for(int i = a.size() -1; i >= 0 ; i--) {
+			if(a.get(i) == true && b.get(i) == false) {
+				result = true;
+			}
+		}
+		return result;
+	}
 	 //**helper function to find twos complement
 	public static BitField twosComplement(BitField b) {
 		for (int i = 0; i < b.size(); i++) {
@@ -137,7 +164,34 @@ public class BinaryCalculator {
 			throw new IllegalArgumentException(
 					"BinaryCalculator.add(a,b): a and b cannot be null and must be the same length.");
 		}
+		//** a is the dividen and b is the divisor (a / b)
+		//** make names easier to understand
+		BitField dividen = a.copy();
+		BitField divisor = new BitField(b.size());
+		BitField quotient = new BitField(b.size());
+		BitField remainder = new BitField(b.size());
+		
+		for(int i = 0; i < b.size(); i++) {			
+			divisor.set(i, b.get(i));
+			//dividen.set(i, b.get(i));
+			remainder = subtract(divisor, remainder);
+			
+			//**STEP 1: COMPARE DIVISOR WITH DIVIDEN
+			
+			//** if remainder is greater than or equal to zero
+			if(isZero(remainder)) {
+				quotient.set(i, false);
+			} else /*remainder is less than zero*/ {
+				remainder = add(divisor, remainder);
+				leftShift(quotient, 1);
+			}
+			
+			
+			
 
+		}
+		print(quotient);
+		print(remainder);
 		// Return both the quotient and the remainder
 		BitField[] out = new BitField[2];
 		out[0] = new BitField(a.size()); // quotient
